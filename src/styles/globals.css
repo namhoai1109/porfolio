@@ -6,6 +6,7 @@
   --white: #fdfdfd;
   --black: #121212;
   --purple: #7e75d1;
+  --red: #ef3340;
 }
 
 * {
@@ -13,20 +14,20 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: "Nunito", sans-serif;
-  font-size: 16px;
 }
 
 body {
   color: var(--black);
   background-color: #fdfdfd;
+  font-size: 16px;
 }
 
 body::-webkit-scrollbar {
   display: none;
 }
 
-.text-purple {
-  color: var(--purple);
+.tag-color {
+  color: var(--red);
 }
 
 .navbar {
@@ -43,6 +44,10 @@ body::-webkit-scrollbar {
   background-color: var(--white);
 }
 
+._text-black {
+  color: var(--black);
+}
+
 ._navbar-active {
   border-color: var(--black);
   box-shadow: 4px 4px 0px 0 var(--black);
@@ -56,11 +61,10 @@ body::-webkit-scrollbar {
 }
 
 .glassmorphism {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 

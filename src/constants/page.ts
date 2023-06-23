@@ -1,8 +1,11 @@
-export const MAX_WITDH_NAVBAR = "1440px";
-export const MAX_WITDH_CONTENT = "1250px";
+export const MAX_WITDH_NAVBAR = "1480px";
+export const MAX_WITDH_CONTENT = "1280px";
 
 export const HOME_NAME = "home";
 export const ABOUT_NAME = "about";
+export const EXPERIENCE_NAME = "experience";
+export const BLACK_COLOR = "#121212";
+export const WHITE_COLOR = "#fdfdfd";
 
 export const navbarItems = [
   {
@@ -10,7 +13,7 @@ export const navbarItems = [
     label: "Home",
   },
   {
-    name: ABOUT_NAME,
-    label: "About",
+    name: EXPERIENCE_NAME,
+    label: "Experience",
   },
 ];

@@ -12,7 +12,7 @@ function CustomLayout({ children }) {
       >
         <Col
           flex={MAX_WITDH_NAVBAR}
-          className="flex items-center justify-between py-1"
+          className="flex items-center justify-between py-2 px-5"
         >
           <Logo />
           <ul className="flex items-center justify-center">

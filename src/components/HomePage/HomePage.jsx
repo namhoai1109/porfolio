@@ -1,17 +1,21 @@
-import { HOME_NAME } from "@/constants/page";
+import { BLACK_COLOR, HOME_NAME, WHITE_COLOR } from "@/constants/page";
 import { Element } from "react-scroll";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 import { useCallback } from "react";
-import LayoutContent from "../LayoutContent/LayoutContent";
+import LayoutContent from "../LayoutContent";
 import { Col, Row } from "antd";
-import { homeData } from "@/data/home";
+import { homeData } from "@/data";
 import { TypeAnimation } from "react-type-animation";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import scrollDownGif from "@/assets/scroll-down.gif";
 
 const particlesOptions = {
   background: {
     color: {
-      value: "#fdfdfd",
+      value: WHITE_COLOR,
     },
   },
   fpsLimit: 60,
@@ -35,10 +39,10 @@ const particlesOptions = {
   },
   particles: {
     color: {
-      value: "#121212",
+      value: BLACK_COLOR,
     },
     links: {
-      color: "#121212",
+      color: BLACK_COLOR,
       distance: 150,
       enable: true,
       opacity: 0.5,
@@ -54,7 +58,7 @@ const particlesOptions = {
         default: "bounce",
       },
       random: false,
-      speed: 1,
+      speed: 2,
       straight: false,
     },
     number: {
@@ -77,7 +81,7 @@ const particlesOptions = {
 const OpenTag = ({ children, inline = false }) => (
   <div className={`${inline ? "inline-block" : "block"} font-bold text-lg`}>
     {"<"}
-    <span className="text-purple text-lg">{children}</span>
+    <span className="tag-color text-lg">{children}</span>
     {">"}
   </div>
 );
@@ -85,7 +89,7 @@ const OpenTag = ({ children, inline = false }) => (
 const CloseTag = ({ children, inline = false }) => (
   <div className={`${inline ? "inline-block" : "block"} font-bold text-lg`}>
     {"</"}
-    <span className="text-purple text-lg">{children}</span>
+    <span className="tag-color text-lg">{children}</span>
     {">"}
   </div>
 );
@@ -98,12 +102,26 @@ function HomePage() {
   return (
     <Element
       name={HOME_NAME}
-      className="w-full h-screen flex items-center justify-center"
+      className="w-full h-screen flex items-center justify-center relative"
     >
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 _bg-white flex items-center rounded-full overflow-hidden">
+        <Image
+          src={scrollDownGif}
+          alt="scroll-down-gif"
+          width={34}
+          height={34}
+        />
+        <span className="text-lg font-bold mr-2">Scroll down</span>
+      </div>
       <LayoutContent>
         <Row justify="space-between" className="items-center">
           <Col span={12}>
-            <section className="glassmorphism p-5">
+            <motion.div
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.6 }}
+              className="glassmorphism p-5 rounded-xl"
+            >
               <OpenTag>div</OpenTag>
               <div>
                 &emsp;
@@ -135,6 +153,24 @@ function HomePage() {
                 <CloseTag inline>p</CloseTag>
               </div>
               <CloseTag>div</CloseTag>
+            </motion.div>
+
+            <section className="flex mt-4">
+              {homeData.socials.map((social, index) => (
+                <motion.span
+                  key={social.link}
+                  initial={{ y: -50, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 1, delay: 1.6 + index * 0.2 }}
+                >
+                  <Link
+                    href={social.link}
+                    className="text-xl flex items-center justify-center p-2 glassmorphism rounded-full mr-2 text-neutral-400 hover:text-neutral-950"
+                  >
+                    {social.icon}
+                  </Link>
+                </motion.span>
+              ))}
             </section>
           </Col>
           <Col span={8}>
