@@ -53,6 +53,11 @@ body::-webkit-scrollbar {
   box-shadow: 4px 4px 0px 0 var(--black);
 }
 
+.neubrutalism {
+  border: 2px solid var(--black);
+  box-shadow: 4px 4px 0px 0 var(--black);
+}
+
 ._bg-blur {
   background: rgba(255, 255, 255, 0);
   box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.05);

@@ -1,4 +1,4 @@
-import Logo from "@/assets/Logo";
+import Logo from "@/assets/svg/Logo";
 import { MAX_WITDH_NAVBAR, navbarItems } from "@/constants/page";
 import { Col, Row } from "antd";
 import { Link } from "react-scroll";

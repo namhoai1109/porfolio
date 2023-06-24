@@ -10,7 +10,7 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import scrollDownGif from "@/assets/scroll-down.gif";
+import scrollDownGif from "@/assets/gif/scroll-down.gif";
 
 const particlesOptions = {
   background: {
