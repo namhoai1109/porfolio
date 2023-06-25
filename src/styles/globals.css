@@ -7,6 +7,7 @@
   --black: #121212;
   --purple: #7e75d1;
   --red: #ef3340;
+  --gray: #c4c4c4;
 }
 
 * {
@@ -24,6 +25,10 @@ body {
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+a:hover {
+  color: var(--black);
 }
 
 .tag-color {
@@ -71,6 +76,29 @@ body::-webkit-scrollbar {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.trans-effect {
+  transition: all 0.4s ease;
+}
+
+.hover-link {
+  border: 2px solid transparent;
+}
+
+.hover-link:hover {
+  transform: translateY(-4px);
+  border-color: var(--gray);
+  box-shadow: 4px 4px 0px 0 var(--gray);
+}
+
+.skill-item {
+  border: 2px solid var(--black);
+  transition: all 0.4s ease;
+}
+
+.skill-item:hover {
+  box-shadow: 4px 4px 0px 0 var(--black);
 }
 
 .border-avatar {

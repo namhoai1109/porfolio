@@ -46,8 +46,8 @@ function ExperiencePage() {
     >
       <LayoutContent>
         <div className="flex flex-col items-center">
-          <h1 className="text-4xl font-bold mb-12">MY WORK EXPERIENCE</h1>
-          <Row justify="space-between" className="w-full">
+          <h1 className="text-4xl font-bold mb-12">WORK EXPERIENCE</h1>
+          <Row justify="space-around" className="w-full">
             <Col span={10}>
               <Timeline
                 mode="alternate"

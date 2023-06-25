@@ -2,8 +2,9 @@ export const MAX_WITDH_NAVBAR = "1480px";
 export const MAX_WITDH_CONTENT = "1280px";
 
 export const HOME_NAME = "home";
-export const ABOUT_NAME = "about";
 export const EXPERIENCE_NAME = "experience";
+export const SKILL_NAME = "skill";
+export const EDUCATION_NAME = "education";
 export const BLACK_COLOR = "#121212";
 export const WHITE_COLOR = "#fdfdfd";
 
@@ -15,5 +16,13 @@ export const navbarItems = [
   {
     name: EXPERIENCE_NAME,
     label: "Experience",
+  },
+  {
+    name: SKILL_NAME,
+    label: "Skill",
+  },
+  {
+    name: EDUCATION_NAME,
+    label: "Education",
   },
 ];

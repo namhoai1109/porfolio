@@ -7,6 +7,8 @@ import {
 } from "@ant-design/icons";
 import Image from "next/image";
 import geekUpLogo from "@/assets/img/geek-up-logo.jpg";
+import hcmusImg from "@/assets/img/hcmus.jpg";
+import lyonImg from "@/assets/img/lyon1.jpg";
 import mindXLogo from "@/assets/img/mindx-logo.png";
 import pencilLogo from "@/assets/img/pencil-philosophy-logo.png";
 import Restaurant from "@/assets/svg/Restaurant";
@@ -27,6 +29,20 @@ import JavaIcon from "@/assets/svg/JavaIcon";
 import SQLiteIcon from "@/assets/svg/SQLiteIcon";
 import AndroidStudioIcon from "@/assets/svg/AndroidStudioIcon";
 import VercelIcon from "@/assets/svg/VercelIcon";
+import FigmaIcon from "@/assets/svg/FigmaIcon";
+import ReactIcon from "@/assets/svg/ReactIcon";
+import NodeIcon from "@/assets/svg/NodeIcon";
+import ExpressIcon from "@/assets/svg/ExpressIcon";
+import ReduxIcon from "@/assets/svg/ReduxIcon";
+import SassIcon from "@/assets/svg/SassIcon";
+import LessIcon from "@/assets/svg/LessIcon";
+import MySQLIcon from "@/assets/svg/MySQLIcon";
+import SQLServerIcon from "@/assets/svg/SQLServerIcon";
+import GitIcon from "@/assets/svg/GitIcon";
+import TypescriptIcon from "@/assets/svg/TypescriptIcon";
+import PrismaIcon from "@/assets/svg/PrismaIcon";
+import GithubIcon from "@/assets/svg/GithubIcon";
+import CppIcon from "@/assets/svg/CppIcon";
 
 export const homeData = {
   name: "Vu Hoai Nam",
@@ -70,6 +86,10 @@ export const experienceData = [
     img: <Bartender />,
     technicalStack: [
       {
+        name: "ReactJS",
+        icon: <ReactIcon />,
+      },
+      {
         name: "NextJS",
         icon: <NextJSIcon />,
       },
@@ -90,6 +110,10 @@ export const experienceData = [
     desc: "Worked in an Agile/Scrum model, captured insights from Product Analyst and built website to reach the business goal",
     img: <Image src={geekUpLogo} alt="geek-up-logo" />,
     technicalStack: [
+      {
+        name: "ReactJS",
+        icon: <ReactIcon />,
+      },
       {
         name: "Ant Design Pro",
         icon: <AntdIcon />,
@@ -147,7 +171,7 @@ export const experienceData = [
   },
   {
     time: "Feb 2022 - May 2022",
-    position: "Front-end developer, Designer",
+    position: "Front-end developer Designer",
     business: "Pencil Philosophy",
     desc: "Discussed about philosophical problems and built mobile app",
     img: <Image src={pencilLogo} alt="geek-up-logo" />,
@@ -164,11 +188,15 @@ export const experienceData = [
         name: "Android Studio",
         icon: <AndroidStudioIcon />,
       },
+      {
+        name: "Figma",
+        icon: <FigmaIcon />,
+      },
     ],
   },
   {
     time: "Sep 2021 - Dec 2021",
-    position: "Front-end developer, Designer",
+    position: "Front-end developer Designer",
     business: "Freelance",
     desc: "Built mobile app to manage a restaurant",
     img: <Restaurant />,
@@ -185,6 +213,130 @@ export const experienceData = [
         name: "Android Studio",
         icon: <AndroidStudioIcon />,
       },
+      {
+        name: "Figma",
+        icon: <FigmaIcon />,
+      },
     ],
+  },
+];
+
+export const skillsData = [
+  {
+    name: "HTML",
+    icon: <HTMLIcon />,
+  },
+  {
+    name: "CSS",
+    icon: <CSSIcon />,
+  },
+  {
+    name: "SASS",
+    icon: <SassIcon />,
+  },
+  {
+    name: "LESS",
+    icon: <LessIcon />,
+  },
+  {
+    name: "Java",
+    icon: <JavaIcon />,
+  },
+  {
+    name: "Javascript",
+    icon: <JSIcon />,
+  },
+  {
+    name: "Typescript",
+    icon: <TypescriptIcon />,
+  },
+  {
+    name: "C++",
+    icon: <CppIcon />,
+  },
+  {
+    name: "ReactJS",
+    icon: <ReactIcon />,
+  },
+  {
+    name: "Ant Design Pro",
+    icon: <AntdIcon />,
+  },
+  {
+    name: "RefineJS",
+    icon: <RefineJSIcon />,
+  },
+  {
+    name: "NextJS",
+    icon: <NextJSIcon />,
+  },
+  {
+    name: "Redux",
+    icon: <ReduxIcon />,
+  },
+  {
+    name: "NodeJS",
+    icon: <NodeIcon />,
+  },
+  {
+    name: "ExpressJS",
+    icon: <ExpressIcon />,
+  },
+  {
+    name: "MySQL",
+    icon: <MySQLIcon />,
+  },
+  {
+    name: "SQL Server",
+    icon: <SQLServerIcon />,
+  },
+  {
+    name: "Prisma ORM",
+    icon: <PrismaIcon />,
+  },
+  {
+    name: "Vercel",
+    icon: <VercelIcon />,
+  },
+  {
+    name: "Supabase",
+    icon: <SupabaseIcon />,
+  },
+  {
+    name: "Git",
+    icon: <GitIcon />,
+  },
+  {
+    name: "Github",
+    icon: <GithubIcon />,
+  },
+  {
+    name: "Figma",
+    icon: <FigmaIcon />,
+  },
+];
+
+export const educationData = [
+  {
+    name: "University of Science, Ho Chi Minh, Vietnam",
+    time: "2020 - 2024",
+    major: "Information Technology",
+    image: hcmusImg,
+    status: "Pursuing",
+    rank: {
+      name: "Top 3 universities in the field of programming in the world in 2016 according to Hackerrank",
+      link: "https://www.hackerrank.com/blog/which-universities-have-the-best-student-developers/",
+    },
+  },
+  {
+    name: "Claude Bernard Lyon 1 University, Lyon, France",
+    time: "2022 - 2023",
+    major: "Information Technology",
+    image: lyonImg,
+    status: "Graduating soon",
+    rank: {
+      name: "Top 17 universities in France according to QS World University Rankings 2023",
+      link: "https://www.universityrankings.ch/results?ranking=QS&region=World&year=2023&q=France",
+    },
   },
 ];
