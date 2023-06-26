@@ -60,19 +60,19 @@ export const homeData = {
   socials: [
     {
       icon: <GithubOutlined />,
-      link: "/",
+      link: "https://github.com/namhoai1109",
     },
     {
       icon: <LinkedinOutlined />,
-      link: "/",
+      link: "https://www.linkedin.com/in/namhoai/",
     },
     {
       icon: <MailOutlined />,
-      link: "/",
+      link: "https://mail.google.com/mail/u/0/#inbox?compose=CllgCJNqtbpGfVVzpspdWvWpkMzPDvBTfPwghLBjrdBvvwKknXPDXNdtxXvmRMJKHVxxPJtWgZg",
     },
     {
       icon: <FacebookOutlined />,
-      link: "/",
+      link: "https://www.facebook.com/profile.php?id=100031909264801",
     },
   ],
 };
@@ -82,7 +82,7 @@ export const experienceData = [
     time: "April 2023 - June 2023",
     position: "Fullstack developer",
     business: "Freelance",
-    desc: "Designed UI and built a management website, and a landing page for a pub",
+    desc: "Designed the UI, built a landing page, and built a website to support a customer managing a pub",
     img: <Bartender />,
     technicalStack: [
       {
@@ -107,7 +107,7 @@ export const experienceData = [
     time: "Feb 2023 - May 2023",
     position: "Frontend Intern",
     business: "Geek Up",
-    desc: "Worked in an Agile/Scrum model, captured insights from Product Analyst and built website to reach the business goal",
+    desc: "Worked in an Agile/Scrum model, captured insights from Product Analyst and built a website to reach the business goal",
     img: <Image src={geekUpLogo} alt="geek-up-logo" />,
     technicalStack: [
       {
@@ -198,7 +198,7 @@ export const experienceData = [
     time: "Sep 2021 - Dec 2021",
     position: "Front-end developer Designer",
     business: "Freelance",
-    desc: "Built mobile app to manage a restaurant",
+    desc: "Built a mobile app that supports a customer managing a restaurant and handling orders",
     img: <Restaurant />,
     technicalStack: [
       {

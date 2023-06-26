@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import scrollDownGif from "@/assets/gif/scroll-down.gif";
+import avatar from "@/assets/img/avatar.jpg";
 
 const particlesOptions = {
   background: {
@@ -114,7 +115,7 @@ function HomePage() {
         <span className="text-lg font-bold mr-2">Scroll down</span>
       </div>
       <LayoutContent>
-        <Row justify="space-between" className="items-center">
+        <Row justify="space-around" className="items-center">
           <Col span={12}>
             <motion.div
               initial={{ opacity: 0, x: -100 }}
@@ -165,6 +166,7 @@ function HomePage() {
                 >
                   <Link
                     href={social.link}
+                    target="_blank"
                     className="text-xl flex items-center justify-center p-2 glassmorphism rounded-full mr-2 text-neutral-400 hover:text-neutral-950"
                   >
                     {social.icon}
@@ -173,8 +175,10 @@ function HomePage() {
               ))}
             </section>
           </Col>
-          <Col span={8}>
-            <div className="border-avatar"></div>
+          <Col span={7}>
+            <div className="border-avatar overflow-hidden">
+              <Image src={avatar} alt="avatar" />
+            </div>
           </Col>
         </Row>
       </LayoutContent>
