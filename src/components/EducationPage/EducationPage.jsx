@@ -11,7 +11,7 @@ function EducationPage() {
   return (
     <Element
       name={EDUCATION_NAME}
-      className="w-full h-screen flex items-center justify-center _bg-white"
+      className="w-full h-[90vh] flex items-center justify-center _bg-white"
     >
       <LayoutContent>
         <h1 className="text-4xl font-bold mb-12 text-center">EDUCATION</h1>
