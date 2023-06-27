@@ -7,7 +7,7 @@ function CustomLayout({ children }) {
     <main>
       <div className="flex justify-center fixed top-0 right-0 left-0 _bg-blur z-50">
         <div
-          className={`w-[${MAX_WITDH_NAVBAR}] flex items-center justify-between py-2 px-5`}
+          className={`w-[1480px] flex items-center justify-between py-2 px-5`}
         >
           <Logo />
           <ul className="flex items-center justify-center">

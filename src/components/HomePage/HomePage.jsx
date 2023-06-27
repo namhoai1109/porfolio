@@ -181,11 +181,11 @@ function HomePage() {
           </div>
         </div>
       </LayoutContent>
-      <Particles
+      {/* <Particles
         className="-z-10 absolute top-0 left-0 w-full h-full"
         init={particlesInit}
         options={particlesOptions}
-      />
+      /> */}
     </Element>
   );
 }
