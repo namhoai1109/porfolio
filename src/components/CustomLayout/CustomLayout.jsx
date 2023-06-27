@@ -1,5 +1,5 @@
 import Logo from "@/assets/svg/Logo";
-import { MAX_WITDH_NAVBAR, navbarItems } from "@/constants/page";
+import { navbarItems } from "@/constants/page";
 import { Link } from "react-scroll";
 
 function CustomLayout({ children }) {
@@ -19,6 +19,7 @@ function CustomLayout({ children }) {
                     to={item.name}
                     spy={true}
                     smooth={true}
+                    href="#"
                     className="inline-block text-lg px-2 py-1 ml-2 rounded navbar hover:cursor-pointer"
                   >
                     {item.label}

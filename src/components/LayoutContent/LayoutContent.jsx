@@ -1,5 +1,3 @@
-import { MAX_WITDH_CONTENT } from "@/constants/page";
-
 function LayoutContent({ children }) {
   return (
     <div className="w-full flex justify-center">
