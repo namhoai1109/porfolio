@@ -17,7 +17,7 @@ function EducationPage() {
         <h1 className="text-4xl font-bold mb-12 text-center">EDUCATION</h1>
         <Row justify="center">
           <Col span={18}>
-            {educationData.map((item, index) => {
+            {educationData.map((item) => {
               return (
                 <Row
                   justify="space-between"

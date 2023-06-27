@@ -182,11 +182,11 @@ function HomePage() {
           </Col>
         </Row>
       </LayoutContent>
-      <Particles
+      {/* <Particles
         className="-z-10"
         init={particlesInit}
         options={particlesOptions}
-      />
+      /> */}
     </Element>
   );
 }
