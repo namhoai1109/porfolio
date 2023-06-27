@@ -181,7 +181,12 @@ function HomePage() {
           </div>
           <div className="w-1/3 flex justify-center">
             <div className="border-avatar overflow-hidden">
-              <Image src={avatar} alt="avatar" className="scale-110" />
+              <Image
+                src={avatar}
+                alt="avatar"
+                className="scale-110"
+                loading="eager"
+              />
             </div>
           </div>
         </div>
