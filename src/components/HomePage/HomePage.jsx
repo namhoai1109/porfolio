@@ -13,6 +13,11 @@ import scrollDownGif from "@/assets/gif/scroll-down.gif";
 import avatar from "@/assets/img/avatar.png";
 
 const particlesOptions = {
+  fullScreen: {
+    enable: false,
+    zIndex: -1,
+  },
+  pauseOnOutsideViewport: true,
   background: {
     color: {
       value: WHITE_COLOR,
@@ -181,11 +186,11 @@ function HomePage() {
           </div>
         </div>
       </LayoutContent>
-      {/* <Particles
+      <Particles
         className="-z-10 absolute top-0 left-0 w-full h-full"
         init={particlesInit}
         options={particlesOptions}
-      /> */}
+      />
     </Element>
   );
 }
