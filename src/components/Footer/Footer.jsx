@@ -1,4 +1,3 @@
-import { Col, Row } from "antd";
 import LayoutContent from "../LayoutContent";
 import {
   CaretRightOutlined,
@@ -16,16 +15,16 @@ function Footer() {
   return (
     <div className="_bg-black">
       <LayoutContent>
-        <Row className="_text-white py-12 border-b-2 border-b-zinc-700">
-          <Col span={8}>
+        <div className="flex _text-white py-12 border-b-2 border-b-zinc-700">
+          <div className="w-1/3">
             <h1 className="text-2xl font-bold mb-2">nnamm&apos;s porfolio</h1>
             <p className="text-base mb-2">
               Thank you for visiting my personal portfolio website. Connect with
               me over socials.
             </p>
             <Logo />
-          </Col>
-          <Col span={8} className="flex flex-col items-center">
+          </div>
+          <div className="w-1/3 flex flex-col items-center">
             <div>
               <h1 className="text-2xl font-bold mb-2">Quick link</h1>
               {navbarItems.map((item) => {
@@ -43,8 +42,8 @@ function Footer() {
                 );
               })}
             </div>
-          </Col>
-          <Col span={8} className="flex flex-col items-center">
+          </div>
+          <div className="w-1/3 flex flex-col items-center">
             <div>
               <h1 className="text-2xl font-bold mb-2">Contact Info</h1>
               <p className="text-base flex items-center">
@@ -69,12 +68,12 @@ function Footer() {
                 })}
               </div>
             </div>
-          </Col>
-        </Row>
-        <Row justify="center" className="_text-white py-4 items-center">
+          </div>
+        </div>
+        <div className="flex justify-center _text-white py-4 items-center">
           Designed and developed by me{" "}
           <HeartFilled className="ml-2 text-pink-600" />
-        </Row>
+        </div>
       </LayoutContent>
     </div>
   );

@@ -47,24 +47,22 @@ function ExperiencePage() {
       <LayoutContent>
         <div className="flex flex-col items-center">
           <h1 className="text-4xl font-bold mb-12">WORK EXPERIENCE</h1>
-          <Row justify="space-around" className="w-full">
-            <Col span={10}>
+          <div className="w-full flex justify-around">
+            <div className="w-5/12">
               <Timeline
                 mode="alternate"
                 items={getItems(currentExp, handleClickTimeline)}
               />
-            </Col>
-            <Col span={10}>
+            </div>
+            <div className="w-5/12">
               <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 2.5 }}
                 className="h-full w-full rounded-lg neubrutalism"
               >
-                <Row justify="center" className="flex-col items-center">
-                  <Col span={12} className="w-full h-1/2">
-                    {currentExpData.img}
-                  </Col>
+                <div className="flex flex-col items-center justify-center">
+                  <div className="w-1/2 h-1/2">{currentExpData.img}</div>
                   <section className="w-full p-3">
                     <h2 className="text-2xl font-extrabold">
                       {currentExpData.business}
@@ -89,10 +87,10 @@ function ExperiencePage() {
                       })}
                     </div>
                   </section>
-                </Row>
+                </div>
               </motion.div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </div>
       </LayoutContent>
     </Element>

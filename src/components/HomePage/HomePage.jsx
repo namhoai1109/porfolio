@@ -4,14 +4,13 @@ import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 import { useCallback } from "react";
 import LayoutContent from "../LayoutContent";
-import { Col, Row } from "antd";
 import { homeData } from "@/data";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import scrollDownGif from "@/assets/gif/scroll-down.gif";
-import avatar from "@/assets/img/avatar.jpg";
+import avatar from "@/assets/img/avatar.png";
 
 const particlesOptions = {
   background: {
@@ -115,8 +114,8 @@ function HomePage() {
         <span className="text-lg font-bold mr-2">Scroll down</span>
       </div>
       <LayoutContent>
-        <Row justify="space-around" className="items-center">
-          <Col span={12}>
+        <div className="flex items-center justify-around">
+          <div className="w-1/2">
             <motion.div
               initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -174,19 +173,19 @@ function HomePage() {
                 </motion.span>
               ))}
             </section>
-          </Col>
-          <Col span={7}>
+          </div>
+          <div className="w-1/3 flex justify-center">
             <div className="border-avatar overflow-hidden">
-              <Image src={avatar} alt="avatar" />
+              <Image src={avatar} alt="avatar" className="scale-110" />
             </div>
-          </Col>
-        </Row>
+          </div>
+        </div>
       </LayoutContent>
-      {/* <Particles
-        className="-z-10"
+      <Particles
+        className="-z-10 absolute top-0 left-0 w-full h-full"
         init={particlesInit}
         options={particlesOptions}
-      /> */}
+      />
     </Element>
   );
 }

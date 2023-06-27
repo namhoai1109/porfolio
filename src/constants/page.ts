@@ -1,5 +1,5 @@
-export const MAX_WITDH_NAVBAR = "1480px";
-export const MAX_WITDH_CONTENT = "1280px";
+export const MAX_WITDH_NAVBAR = "1480px" as "1480px";
+export const MAX_WITDH_CONTENT = "1280px" as "1280px";
 
 export const HOME_NAME = "home";
 export const EXPERIENCE_NAME = "experience";
