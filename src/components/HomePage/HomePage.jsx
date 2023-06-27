@@ -14,7 +14,7 @@ import avatar from "@/assets/img/avatar.png";
 
 const particlesOptions = {
   fullScreen: {
-    enable: false,
+    enable: true,
     zIndex: -1,
   },
   pauseOnOutsideViewport: true,
