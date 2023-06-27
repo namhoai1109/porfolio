@@ -34,6 +34,7 @@ function Footer() {
                     to={item.name}
                     spy={true}
                     smooth={true}
+                    href="#"
                     className="flex items-center text-lg py-1 trans-effect quick-link w-fit"
                   >
                     <CaretRightOutlined />
