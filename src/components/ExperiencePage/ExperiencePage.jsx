@@ -82,7 +82,7 @@ function ExperiencePage() {
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 2.5 }}
-                className="h-full w-full rounded-lg neubrutalism"
+                className="h-full max-md:h-fit w-full rounded-lg neubrutalism"
               >
                 <div className="flex flex-col items-center justify-center">
                   <div className="w-1/2 h-1/2">{currentExpData.img}</div>

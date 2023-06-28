@@ -131,7 +131,7 @@ function HomePage() {
       </div>
       <LayoutContent>
         <div className="flex max-sm:flex-col-reverse items-center justify-around">
-          <div className="w-1/2 max-sm:w-2/3">
+          <div className="w-1/2 max-sm:w-full">
             <motion.div
               initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}

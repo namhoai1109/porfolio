@@ -16,7 +16,7 @@ function Footer() {
     <div className="_bg-black">
       <LayoutContent>
         <div className="flex _text-white py-12 border-b-2 border-b-zinc-700">
-          <div className="w-1/3">
+          <div className="w-1/3 max-sm:w-1/2">
             <h1 className="text-2xl max-lg:text-xl max-md:text-lg max-sm:text-base font-bold mb-2">
               nnamm&apos;s porfolio
             </h1>
@@ -28,7 +28,7 @@ function Footer() {
               <Logo />
             </div>
           </div>
-          <div className="w-1/3 flex flex-col items-center">
+          <div className="w-1/3 max-sm:hidden flex flex-col items-center">
             <div>
               <h1 className="text-2xl max-lg:text-xl max-md:text-lg max-sm:text-base font-bold mb-2">
                 Quick link
@@ -50,7 +50,7 @@ function Footer() {
               })}
             </div>
           </div>
-          <div className="w-1/3 flex flex-col items-center">
+          <div className="w-1/3 max-sm:w-1/2 flex flex-col items-center">
             <div>
               <h1 className="text-2xl max-lg:text-xl max-md:text-lg max-sm:text-base font-bold mb-2">
                 Contact Info
