@@ -1,6 +1,6 @@
 import { BLACK_COLOR, EXPERIENCE_NAME } from "@/constants/page";
 import { experienceData } from "@/data";
-import { Timeline, Tooltip } from "antd";
+import { Timeline, Tooltip, Typography } from "antd";
 import { Element } from "react-scroll";
 import LayoutContent from "../LayoutContent";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ function ExperiencePage() {
             WORK EXPERIENCE
           </h1>
           <div className="w-full flex justify-around">
-            <div className="w-5/12">
+            <div className="w-5/12 max-md:w-1/2">
               <Timeline
                 mode={isSmall ? "left" : "alternate"}
                 items={getItems(isMobile, currentExp, handleClickTimeline)}
@@ -95,10 +95,17 @@ function ExperiencePage() {
                     <h2 className="text-2xl max-lg:text-xl max-md:text-lg max-sm:text-base font-extrabold">
                       {currentExpData.business}
                     </h2>
-                    <span className="text-lg max-lg:text-base max-md:text-sm max-sm:text-xs font-bold">
+                    <Typography.Paragraph
+                      ellipsis={{
+                        rows: 1,
+                        symbol: "...",
+                        tooltip: currentExpData.position,
+                      }}
+                      className="text-lg max-lg:text-base max-md:text-sm max-sm:text-xs font-bold"
+                    >
                       {currentExpData.position}
-                    </span>
-                    <p className="text-base text-justify max-lg:text-sm max-md:text-xs">
+                    </Typography.Paragraph>
+                    <p className="text-base max-lg:text-sm max-md:text-xs">
                       {currentExpData.desc}
                     </p>
                     <div className="flex flex-wrap justify-center mt-3">

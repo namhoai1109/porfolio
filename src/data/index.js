@@ -79,7 +79,7 @@ export const homeData = {
 
 export const experienceData = [
   {
-    time: "April 2023 - June 2023",
+    time: "Apr 2023 - Jun 2023",
     position: "Fullstack developer",
     business: "Freelance",
     desc: "Designed the UI, built a landing page, and built a website to support a customer managing a pub",
@@ -149,7 +149,7 @@ export const experienceData = [
     ],
   },
   {
-    time: "April 2022 - April 2023",
+    time: "Apr 2022 - Apr 2023",
     position: "Technical Mentor",
     business: "MindX Technology School",
     desc: "Instructed algorithms, programming mindset, games and building web apps",
