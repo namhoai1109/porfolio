@@ -14,7 +14,7 @@ import avatar from "@/assets/img/avatar.png";
 
 const particlesOptions = {
   fullScreen: {
-    enable: true,
+    enable: false,
     zIndex: -1,
   },
   pauseOnOutsideViewport: true,
@@ -181,9 +181,9 @@ function HomePage() {
               {homeData.socials.map((social, index) => (
                 <motion.span
                   key={social.link}
-                  // initial={{ y: -50, opacity: 0 }}
-                  // whileInView={{ y: 0, opacity: 1 }}
-                  // transition={{ duration: 1, delay: 1.6 + index * 0.2 }}
+                  initial={{ y: -50, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 1, delay: 1.6 + index * 0.2 }}
                 >
                   <Link
                     href={social.link}
@@ -208,11 +208,11 @@ function HomePage() {
           </div>
         </div>
       </LayoutContent>
-      {/* <Particles
+      <Particles
         className="-z-10 absolute top-0 left-0 w-full h-full"
         init={particlesInit}
         options={particlesOptions}
-      /> */}
+      />
     </Element>
   );
 }

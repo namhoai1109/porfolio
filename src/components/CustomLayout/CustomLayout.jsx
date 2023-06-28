@@ -1,7 +1,6 @@
 import Logo from "@/assets/svg/Logo";
 import { navbarItems } from "@/constants/page";
-import { MenuOutlined } from "@ant-design/icons";
-import { Drawer } from "antd";
+import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { Link } from "react-scroll";
 
@@ -37,7 +36,7 @@ function CustomLayout({ children }) {
   };
   return (
     <main>
-      <div className="flex justify-center fixed top-0 right-0 left-0 _bg-blur z-50">
+      <div className="flex justify-center fixed top-0 right-0 left-0 _bg-blur z-30">
         <div
           className={`w-[1480px] flex items-center justify-between py-2 px-5`}
         >
@@ -55,18 +54,26 @@ function CustomLayout({ children }) {
           >
             <MenuOutlined />
           </div>
-          <Drawer
-            width={280}
-            className="lg:hidden"
-            placement="right"
-            onClose={closeDrawer}
-            open={open}
-          >
-            <ul>{renderNavbarItems(closeDrawer)}</ul>
-          </Drawer>
         </div>
       </div>
       {children}
+      <div
+        className={`${
+          open ? "block" : "hidden"
+        } fixed inset-0 bg-black opacity-40 z-40`}
+        onClick={closeDrawer}
+      />
+      <div
+        className={`fixed top-0 bottom-0 right-0 trans-effect ${
+          open ? "w-2/5 pt-2 pr-2" : "w-0"
+        } _bg-white z-50`}
+      >
+        <CloseOutlined
+          className="p-2 mb-2 hover:cursor-pointer"
+          onClick={closeDrawer}
+        />
+        <ul>{renderNavbarItems(closeDrawer)}</ul>
+      </div>
     </main>
   );
 }
