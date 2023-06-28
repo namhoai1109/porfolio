@@ -147,3 +147,17 @@ a:hover {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   }
 }
+
+.ant-menu-horizontal {
+  border-bottom: none;
+}
+
+.ant-menu-horizontal .ant-menu-item::after,
+.ant-menu-submenu-open.ant-menu-submenu-active::after {
+  display: none;
+  border-color: transparent;
+}
+
+.ant-menu-horizontal .ant-menu-item {
+  padding-inline: 2px;
+}

@@ -1,10 +1,10 @@
 import { BLACK_COLOR, EXPERIENCE_NAME } from "@/constants/page";
 import { experienceData } from "@/data";
-import { Col, Row, Timeline, Tooltip } from "antd";
+import { Timeline, Tooltip } from "antd";
 import { Element } from "react-scroll";
 import LayoutContent from "../LayoutContent";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const getItems = (currentExp, handleClickTimeline) => {
   return experienceData.map((item, index) => {
@@ -15,9 +15,9 @@ const getItems = (currentExp, handleClickTimeline) => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1 + index * 0.2 }}
-          className={`text-lg p-1 ${
+          className={`text-lg max-lg:text-base max-[800px]:text-sm max-sm:text-xs p-1 ${
             index === currentExp
-              ? "_text-black font-bold"
+              ? "_text-black font-semibold md:font-bold"
               : "text-neutral-300 hover:text-neutral-400 hover:cursor-pointer"
           } transition-all duration-300 ease-in-out`}
           onClick={() => handleClickTimeline(index)}
@@ -30,9 +30,30 @@ const getItems = (currentExp, handleClickTimeline) => {
   });
 };
 
+const useViewport = () => {
+  let innerWidth = 0;
+  if (typeof window === "undefined") {
+    innerWidth = 0;
+  } else {
+    innerWidth = window.innerWidth;
+  }
+
+  const [width, setWidth] = useState(innerWidth);
+
+  useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
+
+  return { width };
+};
+
 function ExperiencePage() {
   const [currentExp, setCurrentExp] = useState(0);
   const [currentExpData, setCurrentExpData] = useState(experienceData[0]);
+  const viewPort = useViewport();
+  const isSmall = viewPort.width <= 900;
 
   const handleClickTimeline = (index) => {
     setCurrentExp(index);
@@ -46,11 +67,13 @@ function ExperiencePage() {
     >
       <LayoutContent>
         <div className="flex flex-col items-center">
-          <h1 className="text-4xl font-bold mb-12">WORK EXPERIENCE</h1>
+          <h1 className="text-4xl max-lg:text-3xl max-md:text-2xl max-sm:text-xl font-bold mb-12">
+            WORK EXPERIENCE
+          </h1>
           <div className="w-full flex justify-around">
             <div className="w-5/12">
               <Timeline
-                mode="alternate"
+                mode={isSmall ? "left" : "alternate"}
                 items={getItems(currentExp, handleClickTimeline)}
               />
             </div>
@@ -64,14 +87,16 @@ function ExperiencePage() {
                 <div className="flex flex-col items-center justify-center">
                   <div className="w-1/2 h-1/2">{currentExpData.img}</div>
                   <section className="w-full p-3">
-                    <h2 className="text-2xl font-extrabold">
+                    <h2 className="text-2xl max-lg:text-xl max-md:text-lg max-sm:text-base font-extrabold">
                       {currentExpData.business}
                     </h2>
-                    <span className="text-lg font-bold">
+                    <span className="text-lg max-lg:text-base max-md:text-sm max-sm:text-xs font-bold">
                       {currentExpData.position}
                     </span>
-                    <p className="text-base">{currentExpData.desc}</p>
-                    <div className="flex mt-3">
+                    <p className="text-base text-justify max-lg:text-sm max-md:text-xs">
+                      {currentExpData.desc}
+                    </p>
+                    <div className="flex flex-wrap justify-center mt-3">
                       {currentExpData.technicalStack.map((item) => {
                         return (
                           <Tooltip
@@ -79,7 +104,7 @@ function ExperiencePage() {
                             title={item.name}
                             placement="top"
                           >
-                            <div className="w-8 h-8 rounded-full mr-3">
+                            <div className="w-8 max-lg:w-7 max-md:w-6 mb-1 max-sm:w-5 max-sm:w-6 aspect-square rounded-full mr-3">
                               {item.icon}
                             </div>
                           </Tooltip>
