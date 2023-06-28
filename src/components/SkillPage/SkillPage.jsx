@@ -3,8 +3,23 @@ import { Element } from "react-scroll";
 import LayoutContent from "../LayoutContent";
 import { motion } from "framer-motion";
 import { skillsData } from "@/data";
+import { useContext } from "react";
+import { WidthViewportContext } from "../CustomLayout/CustomLayout";
+
+const skillVar = {
+  init: {
+    opacity: 0,
+    y: -10,
+  },
+  inView: {
+    opacity: 1,
+    y: 0,
+  },
+};
 
 function SkillPage() {
+  const viewPort = useContext(WidthViewportContext);
+  const isSmall = viewPort.width <= 600;
   return (
     <Element
       name={SKILL_NAME}
@@ -22,9 +37,10 @@ function SkillPage() {
                 key={item.name}
               >
                 <motion.div
-                  // initial={{ opacity: 0, y: -10 }}
-                  // whileInView={{ opacity: 1, y: 0 }}
-                  // transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
+                  variants={isSmall ? {} : skillVar}
+                  initial="init"
+                  whileInView="inView"
+                  transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
                   className="w-full h-32 max-lg:h-28 max-md:h-24 max-sm:h-16 rounded-lg flex flex-col items-center justify-center skill-item"
                 >
                   <div className="w-1/3">{item.icon}</div>

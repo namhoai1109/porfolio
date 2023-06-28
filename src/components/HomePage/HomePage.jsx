@@ -2,7 +2,7 @@ import { BLACK_COLOR, HOME_NAME, WHITE_COLOR } from "@/constants/page";
 import { Element } from "react-scroll";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import LayoutContent from "../LayoutContent";
 import { homeData } from "@/data";
 import { TypeAnimation } from "react-type-animation";
@@ -11,6 +11,7 @@ import Link from "next/link";
 import Image from "next/image";
 import scrollDownGif from "@/assets/gif/scroll-down.gif";
 import avatar from "@/assets/img/avatar.png";
+import { WidthViewportContext } from "../CustomLayout/CustomLayout";
 
 const particlesOptions = {
   fullScreen: {
@@ -111,10 +112,35 @@ const CloseTag = ({ children, inline = false }) => (
   </div>
 );
 
+const cardVar = {
+  init: {
+    opacity: 0,
+    x: -100,
+  },
+  inView: {
+    opacity: 1,
+    x: 0,
+  },
+};
+
+const linkVar = {
+  init: {
+    opacity: 0,
+    y: -50,
+  },
+  inView: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
 function HomePage() {
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
   }, []);
+
+  const viewPort = useContext(WidthViewportContext);
+  const isSmall = viewPort.width <= 600;
 
   return (
     <Element
@@ -133,9 +159,10 @@ function HomePage() {
         <div className="flex max-sm:flex-col-reverse items-center justify-around">
           <div className="w-1/2 max-sm:w-full">
             <motion.div
-              // initial={{ opacity: 0, x: -100 }}
-              // whileInView={{ opacity: 1, x: 0 }}
-              // transition={{ duration: 1.6 }}
+              variants={isSmall ? {} : cardVar}
+              initial="init"
+              whileInView="inView"
+              transition={{ duration: 1.6 }}
               className="glassmorphism p-5 rounded-xl"
             >
               <OpenTag>div</OpenTag>
@@ -181,8 +208,9 @@ function HomePage() {
               {homeData.socials.map((social, index) => (
                 <motion.span
                   key={social.link}
-                  initial={{ y: -50, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
+                  variants={isSmall ? {} : linkVar}
+                  initial="init"
+                  whileInView="inView"
                   transition={{ duration: 1, delay: 1.6 + index * 0.2 }}
                 >
                   <Link

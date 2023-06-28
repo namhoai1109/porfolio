@@ -4,17 +4,28 @@ import { Timeline, Tooltip } from "antd";
 import { Element } from "react-scroll";
 import LayoutContent from "../LayoutContent";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { WidthViewportContext } from "../CustomLayout/CustomLayout";
 
-const getItems = (currentExp, handleClickTimeline) => {
+const itemsVar = {
+  init: {
+    opacity: 0,
+  },
+  inView: {
+    opacity: 1,
+  },
+};
+
+const getItems = (isMobile, currentExp, handleClickTimeline) => {
   return experienceData.map((item, index) => {
     return {
       color: BLACK_COLOR,
       children: (
         <motion.div
-          // initial={{ opacity: 0 }}
-          // whileInView={{ opacity: 1 }}
-          // transition={{ duration: 0.5, delay: 1 + index * 0.2 }}
+          variants={isMobile ? {} : itemsVar}
+          initial="init"
+          whileInView="inView"
+          transition={{ duration: 0.5, delay: 1 + index * 0.2 }}
           className={`text-lg max-lg:text-base max-[800px]:text-sm max-sm:text-xs p-1 ${
             index === currentExp
               ? "_text-black font-semibold md:font-bold"
@@ -30,30 +41,23 @@ const getItems = (currentExp, handleClickTimeline) => {
   });
 };
 
-const useViewport = () => {
-  let innerWidth = 0;
-  if (typeof window === "undefined") {
-    innerWidth = 0;
-  } else {
-    innerWidth = window.innerWidth;
-  }
-
-  const [width, setWidth] = useState(innerWidth);
-
-  useEffect(() => {
-    const handleWindowResize = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleWindowResize);
-    return () => window.removeEventListener("resize", handleWindowResize);
-  }, []);
-
-  return { width };
+const cardVar = {
+  init: {
+    opacity: 0,
+    x: 100,
+  },
+  inView: {
+    opacity: 1,
+    x: 0,
+  },
 };
 
 function ExperiencePage() {
   const [currentExp, setCurrentExp] = useState(0);
   const [currentExpData, setCurrentExpData] = useState(experienceData[0]);
-  const viewPort = useViewport();
+  const viewPort = useContext(WidthViewportContext);
   const isSmall = viewPort.width <= 900;
+  const isMobile = viewPort.width <= 600;
 
   const handleClickTimeline = (index) => {
     setCurrentExp(index);
@@ -74,14 +78,15 @@ function ExperiencePage() {
             <div className="w-5/12">
               <Timeline
                 mode={isSmall ? "left" : "alternate"}
-                items={getItems(currentExp, handleClickTimeline)}
+                items={getItems(isMobile, currentExp, handleClickTimeline)}
               />
             </div>
             <div className="w-5/12">
               <motion.div
-                // initial={{ opacity: 0, x: 100 }}
-                // whileInView={{ opacity: 1, x: 0 }}
-                // transition={{ duration: 1, delay: 2.5 }}
+                variants={isMobile ? {} : cardVar}
+                initial="init"
+                whileInView="inView"
+                transition={{ duration: 1, delay: 2.5 }}
                 className="h-full max-md:h-fit w-full rounded-lg neubrutalism"
               >
                 <div className="flex flex-col items-center justify-center">
@@ -104,7 +109,7 @@ function ExperiencePage() {
                             title={item.name}
                             placement="top"
                           >
-                            <div className="w-8 max-lg:w-7 max-md:w-6 mb-1 max-sm:w-5 max-sm:w-6 aspect-square rounded-full mr-3">
+                            <div className="w-8 max-lg:w-7 max-md:w-6 mb-1 max-sm:w-5 aspect-square rounded-full mr-3">
                               {item.icon}
                             </div>
                           </Tooltip>
