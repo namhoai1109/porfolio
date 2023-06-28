@@ -12,9 +12,9 @@ const getItems = (currentExp, handleClickTimeline) => {
       color: BLACK_COLOR,
       children: (
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1 + index * 0.2 }}
+          // initial={{ opacity: 0 }}
+          // whileInView={{ opacity: 1 }}
+          // transition={{ duration: 0.5, delay: 1 + index * 0.2 }}
           className={`text-lg max-lg:text-base max-[800px]:text-sm max-sm:text-xs p-1 ${
             index === currentExp
               ? "_text-black font-semibold md:font-bold"
@@ -79,9 +79,9 @@ function ExperiencePage() {
             </div>
             <div className="w-5/12">
               <motion.div
-                initial={{ opacity: 0, x: 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 2.5 }}
+                // initial={{ opacity: 0, x: 100 }}
+                // whileInView={{ opacity: 1, x: 0 }}
+                // transition={{ duration: 1, delay: 2.5 }}
                 className="h-full max-md:h-fit w-full rounded-lg neubrutalism"
               >
                 <div className="flex flex-col items-center justify-center">

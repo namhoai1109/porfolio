@@ -22,9 +22,9 @@ function SkillPage() {
                 key={item.name}
               >
                 <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
+                  // initial={{ opacity: 0, y: -10 }}
+                  // whileInView={{ opacity: 1, y: 0 }}
+                  // transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
                   className="w-full h-32 max-lg:h-28 max-md:h-24 max-sm:h-16 rounded-lg flex flex-col items-center justify-center skill-item"
                 >
                   <div className="w-1/3">{item.icon}</div>

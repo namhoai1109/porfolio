@@ -133,9 +133,9 @@ function HomePage() {
         <div className="flex max-sm:flex-col-reverse items-center justify-around">
           <div className="w-1/2 max-sm:w-full">
             <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.6 }}
+              // initial={{ opacity: 0, x: -100 }}
+              // whileInView={{ opacity: 1, x: 0 }}
+              // transition={{ duration: 1.6 }}
               className="glassmorphism p-5 rounded-xl"
             >
               <OpenTag>div</OpenTag>
@@ -181,9 +181,9 @@ function HomePage() {
               {homeData.socials.map((social, index) => (
                 <motion.span
                   key={social.link}
-                  initial={{ y: -50, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 1, delay: 1.6 + index * 0.2 }}
+                  // initial={{ y: -50, opacity: 0 }}
+                  // whileInView={{ y: 0, opacity: 1 }}
+                  // transition={{ duration: 1, delay: 1.6 + index * 0.2 }}
                 >
                   <Link
                     href={social.link}
