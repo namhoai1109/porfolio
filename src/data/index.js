@@ -43,6 +43,7 @@ import TypescriptIcon from "@/assets/svg/TypescriptIcon";
 import PrismaIcon from "@/assets/svg/PrismaIcon";
 import GithubIcon from "@/assets/svg/GithubIcon";
 import CppIcon from "@/assets/svg/CppIcon";
+import TailwindIcon from "@/assets/svg/TailwindIcon";
 
 export const homeData = {
   name: "Vu Hoai Nam",
@@ -92,6 +93,14 @@ export const experienceData = [
       {
         name: "NextJS",
         icon: <NextJSIcon />,
+      },
+      {
+        name: "TailwindCSS",
+        icon: <TailwindIcon />,
+      },
+      {
+        name: "Ant design",
+        icon: <AntdIcon />,
       },
       {
         name: "Vercel",
