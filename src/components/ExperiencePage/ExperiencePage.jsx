@@ -1,10 +1,11 @@
+"use client";
 import { BLACK_COLOR, EXPERIENCE_NAME } from "@/constants/page";
 import { experienceData } from "@/data";
 import { Timeline, Tooltip, Typography } from "antd";
 import { Element } from "react-scroll";
 import LayoutContent from "../LayoutContent";
 import { motion } from "framer-motion";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { WidthViewportContext } from "../CustomLayout/CustomLayout";
 
 const itemsVar = {
@@ -56,7 +57,6 @@ function ExperiencePage() {
   const [currentExp, setCurrentExp] = useState(0);
   const [currentExpData, setCurrentExpData] = useState(experienceData[0]);
   const viewPort = useContext(WidthViewportContext);
-  const isSmall = viewPort.width <= 900;
   const isMobile = viewPort.width <= 600;
 
   const handleClickTimeline = (index) => {
@@ -76,10 +76,18 @@ function ExperiencePage() {
           </h1>
           <div className="w-full flex justify-around">
             <div className="w-5/12 max-md:w-1/2">
-              <Timeline
-                mode={isSmall ? "left" : "alternate"}
-                items={getItems(isMobile, currentExp, handleClickTimeline)}
-              />
+              <div className="lg:hidden">
+                <Timeline
+                  mode={"left"}
+                  items={getItems(isMobile, currentExp, handleClickTimeline)}
+                />
+              </div>
+              <div className="max-lg:hidden">
+                <Timeline
+                  mode={"alternate"}
+                  items={getItems(isMobile, currentExp, handleClickTimeline)}
+                />
+              </div>
             </div>
             <div className="w-5/12">
               <motion.div
@@ -108,7 +116,7 @@ function ExperiencePage() {
                     <p className="text-base max-lg:text-sm max-md:text-xs">
                       {currentExpData.desc}
                     </p>
-                    <div className="flex flex-wrap justify-center mt-3">
+                    <div className="flex flex-wrap max-sm:justify-center mt-3">
                       {currentExpData.technicalStack.map((item) => {
                         return (
                           <Tooltip

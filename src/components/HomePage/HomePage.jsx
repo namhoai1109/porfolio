@@ -140,7 +140,7 @@ function HomePage() {
   }, []);
 
   const viewPort = useContext(WidthViewportContext);
-  const isSmall = viewPort.width <= 600;
+  const isMobile = viewPort.width <= 600;
 
   return (
     <Element
@@ -159,7 +159,7 @@ function HomePage() {
         <div className="flex max-sm:flex-col-reverse items-center justify-around">
           <div className="w-1/2 max-sm:w-full">
             <motion.div
-              variants={isSmall ? {} : cardVar}
+              variants={isMobile ? {} : cardVar}
               initial="init"
               whileInView="inView"
               transition={{ duration: 1.6 }}
@@ -208,7 +208,7 @@ function HomePage() {
               {homeData.socials.map((social, index) => (
                 <motion.span
                   key={social.link}
-                  variants={isSmall ? {} : linkVar}
+                  variants={isMobile ? {} : linkVar}
                   initial="init"
                   whileInView="inView"
                   transition={{ duration: 1, delay: 1.6 + index * 0.2 }}

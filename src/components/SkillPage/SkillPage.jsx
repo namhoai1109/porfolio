@@ -19,7 +19,7 @@ const skillVar = {
 
 function SkillPage() {
   const viewPort = useContext(WidthViewportContext);
-  const isSmall = viewPort.width <= 600;
+  const isMobile = viewPort.width <= 600;
   return (
     <Element
       name={SKILL_NAME}
@@ -37,7 +37,7 @@ function SkillPage() {
                 key={item.name}
               >
                 <motion.div
-                  variants={isSmall ? {} : skillVar}
+                  variants={isMobile ? {} : skillVar}
                   initial="init"
                   whileInView="inView"
                   transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}

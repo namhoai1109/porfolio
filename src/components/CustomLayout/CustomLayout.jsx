@@ -26,18 +26,18 @@ const renderNavbarItems = (closeDrawer = () => {}) => {
 
 const useViewport = () => {
   let innerWidth = 0;
-  if (typeof window === "undefined") {
-    innerWidth = 0;
-  } else {
+  if (typeof window !== "undefined") {
     innerWidth = window.innerWidth;
   }
 
   const [width, setWidth] = useState(innerWidth);
 
   useEffect(() => {
-    const handleWindowResize = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleWindowResize);
-    return () => window.removeEventListener("resize", handleWindowResize);
+    if (typeof window !== "undefined") {
+      const handleWindowResize = () => setWidth(window.innerWidth);
+      window.addEventListener("resize", handleWindowResize);
+      return () => window.removeEventListener("resize", handleWindowResize);
+    }
   }, []);
 
   return { width };
@@ -55,6 +55,7 @@ function CustomLayout({ children }) {
   const closeDrawer = () => {
     setOpen(false);
   };
+
   return (
     <main>
       <WidthViewportContext.Provider value={useViewport()}>
