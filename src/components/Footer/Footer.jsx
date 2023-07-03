@@ -69,7 +69,7 @@ function Footer() {
                       key={social.link}
                       href={social.link}
                       target="_blank"
-                      className="text-xl max-lg:text-lg max-md:text-base max-sm:text-sm flex items-center justify-center p-2 max-md:p-1 footer-link rounded-full mr-2"
+                      className="text-xl max-lg:text-lg max-md:text-base max-sm:text-sm flex items-center justify-center p-2 max-md:p-1 trans-effect footer-link rounded-full mr-2"
                     >
                       {social.icon}
                     </Link>

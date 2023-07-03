@@ -15,7 +15,7 @@ const renderNavbarItems = (closeDrawer = () => {}) => {
           smooth={true}
           href="#"
           onClick={closeDrawer}
-          className="inline-block max-lg:block max-lg:mb-2 text-lg max-sm:text-base px-2 py-1 ml-2 rounded navbar hover:cursor-pointer"
+          className="inline-block max-lg:block max-lg:mb-2 text-lg max-sm:text-base px-2 py-1 ml-2 rounded trans-effect navbar hover:cursor-pointer"
         >
           {item.label}
         </Link>
@@ -59,7 +59,7 @@ function CustomLayout({ children }) {
       <div
         className={`${
           open ? "block" : "hidden"
-        } fixed inset-0 bg-black opacity-40 z-40`}
+        } trans-effect fixed inset-0 bg-black opacity-40 z-40`}
         onClick={closeDrawer}
       />
       <div
