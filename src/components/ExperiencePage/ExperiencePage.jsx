@@ -63,7 +63,7 @@ function ExperiencePage() {
             WORK EXPERIENCE
           </h1>
           <div className="w-full flex justify-around">
-            <div className="w-5/12 max-md:w-1/2">
+            <div ref={timelineRef} className="w-5/12 max-md:w-1/2">
               <div className="lg:hidden">
                 <Timeline
                   mode={"left"}
@@ -74,7 +74,7 @@ function ExperiencePage() {
                   )}
                 />
               </div>
-              <div ref={timelineRef} className="max-lg:hidden">
+              <div className="max-lg:hidden">
                 <Timeline
                   mode={"alternate"}
                   items={getItems(
