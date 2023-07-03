@@ -4,8 +4,7 @@ import { Timeline, Tooltip, Typography } from "antd";
 import { Element } from "react-scroll";
 import LayoutContent from "../LayoutContent";
 import { useInView } from "framer-motion";
-import { useContext, useRef, useState } from "react";
-import { WidthViewportContext } from "../CustomLayout/CustomLayout";
+import { useRef, useState } from "react";
 
 const getItems = (timelineInView, currentExp, handleClickTimeline) => {
   return experienceData.map((item, index) => {
@@ -41,8 +40,6 @@ const getItems = (timelineInView, currentExp, handleClickTimeline) => {
 function ExperiencePage() {
   const [currentExp, setCurrentExp] = useState(0);
   const [currentExpData, setCurrentExpData] = useState(experienceData[0]);
-  const viewPort = useContext(WidthViewportContext);
-  const isMobile = viewPort.width <= 600;
 
   const handleClickTimeline = (index) => {
     setCurrentExp(index);

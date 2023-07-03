@@ -11,7 +11,6 @@ import Link from "next/link";
 import Image from "next/image";
 import scrollDownGif from "@/assets/gif/scroll-down.gif";
 import avatar from "@/assets/img/avatar.png";
-import { WidthViewportContext } from "../CustomLayout/CustomLayout";
 
 const particlesOptions = {
   fullScreen: {
@@ -116,9 +115,6 @@ function HomePage() {
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
   }, []);
-
-  // const viewPort = useContext(WidthViewportContext);
-  // const isMobile = viewPort.width <= 600;
 
   const cardRef = useRef();
   const cardInView = useInView(cardRef);

@@ -3,13 +3,9 @@ import { Element } from "react-scroll";
 import LayoutContent from "../LayoutContent";
 import { useInView } from "framer-motion";
 import { skillsData } from "@/data";
-import { useContext, useRef } from "react";
-import { WidthViewportContext } from "../CustomLayout/CustomLayout";
+import { useRef } from "react";
 
 function SkillPage() {
-  const viewPort = useContext(WidthViewportContext);
-  const isMobile = viewPort.width <= 600;
-
   const skillsRef = useRef();
   const skillsInView = useInView(skillsRef);
 
