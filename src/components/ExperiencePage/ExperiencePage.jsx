@@ -67,7 +67,11 @@ function ExperiencePage() {
               <div className="lg:hidden">
                 <Timeline
                   mode={"left"}
-                  items={getItems(isMobile, currentExp, handleClickTimeline)}
+                  items={getItems(
+                    timelineInView,
+                    currentExp,
+                    handleClickTimeline
+                  )}
                 />
               </div>
               <div ref={timelineRef} className="max-lg:hidden">
