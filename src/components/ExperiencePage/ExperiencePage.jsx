@@ -1,56 +1,41 @@
-"use client";
 import { BLACK_COLOR, EXPERIENCE_NAME } from "@/constants/page";
 import { experienceData } from "@/data";
 import { Timeline, Tooltip, Typography } from "antd";
 import { Element } from "react-scroll";
 import LayoutContent from "../LayoutContent";
-import { motion } from "framer-motion";
-import { useContext, useState } from "react";
+import { useInView } from "framer-motion";
+import { useContext, useRef, useState } from "react";
 import { WidthViewportContext } from "../CustomLayout/CustomLayout";
 
-const itemsVar = {
-  init: {
-    opacity: 0,
-  },
-  inView: {
-    opacity: 1,
-  },
-};
-
-const getItems = (isMobile, currentExp, handleClickTimeline) => {
+const getItems = (timelineInView, currentExp, handleClickTimeline) => {
   return experienceData.map((item, index) => {
     return {
       color: BLACK_COLOR,
       children: (
-        <motion.div
-          variants={isMobile ? {} : itemsVar}
-          initial="init"
-          whileInView="inView"
-          transition={{ duration: 0.5, delay: 1 + index * 0.2 }}
-          className={`text-lg max-lg:text-base max-[800px]:text-sm max-sm:text-xs p-1 ${
-            index === currentExp
-              ? "_text-black font-semibold md:font-bold"
-              : "text-neutral-300 hover:text-neutral-400 hover:cursor-pointer"
-          } transition-all duration-300 ease-in-out`}
+        <div
+          style={{
+            "--duration": "0.5s",
+            "--delay": `${1 + index * 0.2}s`,
+          }}
+          className={` trans-effect duration-custom delay-custom from-opa-0 ${
+            timelineInView ? "to-start" : ""
+          }`}
           onClick={() => handleClickTimeline(index)}
         >
-          <div>{item.time}</div>
-          <div>{item.position}</div>
-        </motion.div>
+          <div
+            className={`text-lg max-lg:text-base max-[800px]:text-sm max-sm:text-xs p-1 ${
+              index === currentExp
+                ? "_text-black font-semibold md:font-bold"
+                : "text-neutral-300 hover:text-neutral-400 hover:cursor-pointer"
+            } trans-effect`}
+          >
+            <div>{item.time}</div>
+            <div>{item.position}</div>
+          </div>
+        </div>
       ),
     };
   });
-};
-
-const cardVar = {
-  init: {
-    opacity: 0,
-    x: 100,
-  },
-  inView: {
-    opacity: 1,
-    x: 0,
-  },
 };
 
 function ExperiencePage() {
@@ -63,6 +48,9 @@ function ExperiencePage() {
     setCurrentExp(index);
     setCurrentExpData(experienceData[index]);
   };
+
+  const timelineRef = useRef();
+  const timelineInView = useInView(timelineRef);
 
   return (
     <Element
@@ -82,20 +70,23 @@ function ExperiencePage() {
                   items={getItems(isMobile, currentExp, handleClickTimeline)}
                 />
               </div>
-              <div className="max-lg:hidden">
+              <div ref={timelineRef} className="max-lg:hidden">
                 <Timeline
                   mode={"alternate"}
-                  items={getItems(isMobile, currentExp, handleClickTimeline)}
+                  items={getItems(
+                    timelineInView,
+                    currentExp,
+                    handleClickTimeline
+                  )}
                 />
               </div>
             </div>
             <div className="w-5/12">
-              <motion.div
-                variants={isMobile ? {} : cardVar}
-                initial="init"
-                whileInView="inView"
-                transition={{ duration: 1, delay: 2.5 }}
-                className="h-full max-md:h-fit w-full rounded-lg neubrutalism"
+              <div
+                style={{ "--duration": "1s", "--delay": "2.2s" }}
+                className={`h-full max-md:h-fit w-full rounded-lg neubrutalism duration-custom delay-custom from-right-100 ${
+                  timelineInView ? "to-start" : ""
+                }`}
               >
                 <div className="flex flex-col items-center justify-center">
                   <div className="w-1/2 h-1/2">{currentExpData.img}</div>
@@ -133,7 +124,7 @@ function ExperiencePage() {
                     </div>
                   </section>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>

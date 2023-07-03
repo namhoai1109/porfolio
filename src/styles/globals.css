@@ -90,6 +90,64 @@ a:hover {
   transition: all 0.4s ease;
 }
 
+.duration-custom {
+  transition-duration: var(--duration);
+  -moz-transition-duration: var(--duration);
+  -webkit-transition-duration: var(--duration);
+  -o-transition-duration: var(--duration);
+}
+
+.delay-custom {
+  transition-delay: var(--delay);
+  -moz-transition-delay: var(--delay);
+  -webkit-transition-delay: var(--delay);
+  -o-transition-delay: var(--delay);
+}
+
+.from-left-100 {
+  transform: translateX(-100px);
+  -moz-transform: translateX(-100px);
+  -webkit-transform: translateX(-100px);
+  -o-transform: translateX(-100px);
+  opacity: 0;
+}
+
+.from-right-100 {
+  transform: translateX(100px);
+  -moz-transform: translateX(100px);
+  -webkit-transform: translateX(100px);
+  -o-transform: translateX(100px);
+  opacity: 0;
+}
+
+.from-top-20 {
+  transform: translateY(-20px);
+  -moz-transform: translateY(-20px);
+  -webkit-transform: translateY(-20px);
+  -o-transform: translateY(-20px);
+  opacity: 0;
+}
+
+.from-top-10 {
+  transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+  -o-transform: translateY(-10px);
+  opacity: 0;
+}
+
+.from-opa-0 {
+  opacity: 0;
+}
+
+.to-start {
+  transform: translate(0px);
+  -moz-transform: translate(0px);
+  -webkit-transform: translate(0px);
+  -o-transform: translate(0px);
+  opacity: 1;
+}
+
 .hover-link {
   border: 2px solid transparent;
 }
@@ -102,7 +160,6 @@ a:hover {
 
 .skill-item {
   border: 2px solid var(--black);
-  transition: all 0.4s ease;
 }
 
 .skill-item:hover {

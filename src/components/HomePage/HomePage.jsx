@@ -2,11 +2,11 @@ import { BLACK_COLOR, HOME_NAME, WHITE_COLOR } from "@/constants/page";
 import { Element } from "react-scroll";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
-import { useCallback, useContext } from "react";
+import { useCallback, useRef } from "react";
 import LayoutContent from "../LayoutContent";
 import { homeData } from "@/data";
 import { TypeAnimation } from "react-type-animation";
-import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import scrollDownGif from "@/assets/gif/scroll-down.gif";
@@ -112,35 +112,16 @@ const CloseTag = ({ children, inline = false }) => (
   </div>
 );
 
-const cardVar = {
-  init: {
-    opacity: 0,
-    x: -100,
-  },
-  inView: {
-    opacity: 1,
-    x: 0,
-  },
-};
-
-const linkVar = {
-  init: {
-    opacity: 0,
-    y: -50,
-  },
-  inView: {
-    opacity: 1,
-    y: 0,
-  },
-};
-
 function HomePage() {
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
   }, []);
 
-  const viewPort = useContext(WidthViewportContext);
-  const isMobile = viewPort.width <= 600;
+  // const viewPort = useContext(WidthViewportContext);
+  // const isMobile = viewPort.width <= 600;
+
+  const cardRef = useRef();
+  const cardInView = useInView(cardRef);
 
   return (
     <Element
@@ -158,12 +139,15 @@ function HomePage() {
       <LayoutContent>
         <div className="flex max-sm:flex-col-reverse items-center justify-around">
           <div className="w-1/2 max-sm:w-full">
-            <motion.div
-              variants={isMobile ? {} : cardVar}
-              initial="init"
-              whileInView="inView"
-              transition={{ duration: 1.6 }}
-              className="glassmorphism p-5 rounded-xl"
+            <div
+              ref={cardRef}
+              style={{
+                "--duration": "2.5s",
+                "--delay": "0.8s",
+              }}
+              className={`glassmorphism p-5 rounded-xl trans-effect delay-custom duration-custom from-left-100 ${
+                cardInView ? "to-start" : ""
+              }`}
             >
               <OpenTag>div</OpenTag>
               <div>
@@ -202,16 +186,19 @@ function HomePage() {
                 <CloseTag inline>p</CloseTag>
               </div>
               <CloseTag>div</CloseTag>
-            </motion.div>
+            </div>
 
             <section className="flex mt-4 max-sm:mt-2">
               {homeData.socials.map((social, index) => (
-                <motion.span
+                <span
                   key={social.link}
-                  variants={isMobile ? {} : linkVar}
-                  initial="init"
-                  whileInView="inView"
-                  transition={{ duration: 1, delay: 1.6 + index * 0.2 }}
+                  style={{
+                    "--delay": `${1.6 + index * 0.2}s`,
+                    "--duration": "1s",
+                  }}
+                  className={`trans-effect delay-custom duration-custom from-top-20 ${
+                    cardInView ? "to-start" : ""
+                  }`}
                 >
                   <Link
                     href={social.link}
@@ -220,7 +207,7 @@ function HomePage() {
                   >
                     {social.icon}
                   </Link>
-                </motion.span>
+                </span>
               ))}
             </section>
           </div>
